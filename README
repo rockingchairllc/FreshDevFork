@@ -1,0 +1,1 @@
+This is the development fork of the Fresh code Jim uploaded to GitHub. It's called FreshDevFork, because VJ forked that code using the RockingChairLLC account. Now, VJ will make changes to Tri's code on this dev version of fresh. It will be in a separate folder on the EC2 server, at "/freshdev"
