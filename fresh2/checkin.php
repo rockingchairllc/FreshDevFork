@@ -129,13 +129,16 @@ Leave a message!
 <br>
 'Da Message Board:
 <br>
+
+<!-- NOTE TO PROGRAMMER: THIS IS WHERE THINGS STOP WORKING. IF YOU DELETE THE REST OF THE CODE ON THIS PAGE, IT WORKS FINE -->
+
 <?php
 	// SQL QUERY TO RETREIVE MESSAGES, AND RETREIVE THE FIRST NAME OF THE AUTHOR OF EACH MESSAGE
 	$query = sprintf("SELECT DATE_FORMAT(messages.date_and_time,'%W %r'),messages.msg_content,person.first_name FROM messages LEFT JOIN person USING (person_id) WHERE messages.place_id='%s' ",mysql_real_escape_string($placeId));
 		// Perform Query
 		$result = mysql_query($query);
 		// Check result
-		echo $query;
+		//echo $query;
 		// This shows the actual query sent to MySQL, and the error. Useful for debugging.
 		if (!$result) {
 			$message  = 'Zero Messages';    
