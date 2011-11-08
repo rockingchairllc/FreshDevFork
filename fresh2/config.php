@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$username='root';
-$password='tamkhong0';
+$username='freshuser';
+$password='secret';
 $server = 'localhost';
 $dbname = 'fresh';
 $mysqlConn = mysql_connect($server, $username, $password);
