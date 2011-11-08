@@ -115,6 +115,16 @@
 	}
 	
 ?>
+<!-- Now we let people leave and read messages -->
+Leave a message!
+<form action="messageboard.php" method="post">	
+		<input type="hidden" name="user_id" id="user_id" value="<?php echo $userId; ?>">
+		<input type="hidden" name="place_id" id="place_id" value="<?php echo $placeId; ?>">
+		<br />
+		<input type="text" name="msg_content" id="msg_content" >
+		<input type="submit" value="Yodel It!" >
+	</form>
+
 
 </body>
 </html>
