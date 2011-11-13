@@ -14,21 +14,34 @@
     if( isset($_POST["q"]) && $_POST["q"] == "showmsgs" ){
 
         $fresh_PlaceId = getFreshPlaceId( $placeId );
+
+        # SQL QUERY TO CHECK IF ANYBODY HAS CHECKED IN WITH 10 SECONDS OF TIME.
+        $current_time = time();
+        $prev_time = $current_time-5;
+        $current_time = $current_time+5;
+        $query = "SELECT *,b.first_name FROM checkin as a LEFT JOIN person as b ON (b.person_id=a.person_id) WHERE fresh_place_id = ".$fresh_PlaceId." AND (UNIX_TIMESTAMP(datetime_checkin) BETWEEN ".$prev_time." AND ".$current_time.")";
+        $result_1 = mysql_query($query);
+        
         // SQL QUERY TO RETREIVE MESSAGES, AND RETREIVE THE FIRST NAME OF THE AUTHOR OF EACH MESSAGE
         $query = sprintf("SELECT messages.date_and_time,messages.msg_content,person.first_name FROM messages LEFT JOIN person ON (person.person_id = messages.person_id) WHERE messages.place_id='%s' ", mysql_real_escape_string($fresh_PlaceId));
 
         // Perform Query
-        $result = mysql_query($query);
+        $result_2 = mysql_query($query);
 
         // This shows the actual query sent to MySQL, and the error. Useful for debugging.
-        if (!$result) {
+        if (!$result_2) {
             $message = 'Zero Messages';
             die($message);
         }
         // Fetch the messages from mysql and echo in a table
         echo '<table>';
+        while ($row = mysql_fetch_assoc($result_1)) {
+            echo "<tr>";
+            echo "<td><B><I>".$row["first_name"]." has checked in!"."</I></B></td>";
+            echo "</tr>";
+        }
         $count = 1;
-        while ($row = mysql_fetch_assoc($result)) {
+        while ($row = mysql_fetch_assoc($result_2)) {
             echo '<tr>';
 
             # Applying word wrapping to Message Board message. Kept the width as 40 characters, but can be modified according to iPhone's screen width.
