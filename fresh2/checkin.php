@@ -178,12 +178,11 @@ header('Content-type: text/html; charset=utf-8');
 
         <!-- Now we let people leave and read messages -->
         Leave a message!
-        <form id="frm_message_board" name="frm_message_board" method="POST" action="">
+        <form id="frm_message_board" name="frm_message_board" method="POST" action="javascript: fn_post_message();">
             <input type="hidden" name="user_id" id="user_id" value="<?php echo $userId; ?>" />
             <input type="hidden" name="place_id" id="place_id" value="<?php echo $placeId; ?>" />
             <br />
             <input type="text" name="msg_content" id="msg_content" />
-            <input type="text" name="msg_content1" id="msg_content1" style="display:none" />
             <input type="button" value="Yodel It!" onclick="fn_post_message();" />
         </form>
 
