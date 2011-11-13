@@ -18,7 +18,7 @@ $place = new GPlaceAPI();
         $lat = 0;
         $lng = 0;
         //if(isset($_SESSION['user_id'])){
-        //	$userId = $_SESSION['user_id'];
+        //    $userId = $_SESSION['user_id'];
         //}
         //else{
         if (isset($_GET['uid'])) {
@@ -115,11 +115,12 @@ $place = new GPlaceAPI();
         <!-- Now we let people leave and read messages -->
         Leave a message!
         <form action="messageboard.php" method="post">
-            <input type="hidden" name="user_id" id="user_id" value="<?php echo $userId; ?>">
-            <input type="hidden" name="place_id" id="place_id" value="<?php echo $placeId; ?>">
+            <input type="hidden" name="user_id" id="user_id" value="<?php echo $userId; ?>" />
+            <input type="hidden" name="place_id" id="place_id" value="<?php echo $placeId; ?>" />
+            <input type="hidden" name="q" id="q" value="post_message" />
             <br />
-            <input type="text" name="msg_content" id="msg_content" >
-            <input type="submit" value="Yodel It!" >
+            <input type="text" name="msg_content" id="msg_content" />
+            <input type="submit" value="Yodel It!" />
         </form>
 
         <!-- Read messages -->
