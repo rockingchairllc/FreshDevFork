@@ -40,7 +40,7 @@ header('Content-type: text/html; charset=utf-8');
                     type: "POST",
                     data: "q=post_message&"+form_elements,
                     url: "messageboard.php",
-                    async: false,
+                    async: true,
                     success: function(msg){
                         $("#msg_content").attr("value","");
                         fn_show_msgboard();
