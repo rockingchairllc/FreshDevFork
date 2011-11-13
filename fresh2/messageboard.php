@@ -11,9 +11,11 @@ header('Content-type: text/html; charset=utf-8');
         <script type="text/javascript">
             // Function defined here to show message board updates thru AJAX
             function fn_show_msgboard(){
+                // Make an AJAX call.
+                form_elements = $("#frm_message_board").serialize();
                 $.ajax({
                     type: "POST",
-                    data: "q=showmsgs",
+                    data: "q=showmsgs&"+form_elements,
                     url: "messageboard.php",
                     async: true,
                     success: function(msg){
@@ -50,7 +52,7 @@ header('Content-type: text/html; charset=utf-8');
                     fn_show_msgboard();
                     
                     // Messages refresh function.
-                    setTimeout("fn_show_msgboard()",5000);
+                    setTimeout("fn_show_msgboard();",5000);
                 }
             );
         </script>
@@ -67,18 +69,16 @@ header('Content-type: text/html; charset=utf-8');
         $msg_content = isset($_POST["msg_content"])?$_POST['msg_content']:"";
 
         # Added to use it with AJAX.
-        
         # This If condition is called for showing messages list.
         if( isset($_POST["q"]) && $_POST["q"] == "showmsgs" ){
-            
+
+            $fresh_PlaceId = getFreshPlaceId( $placeId );
             // SQL QUERY TO RETREIVE MESSAGES, AND RETREIVE THE FIRST NAME OF THE AUTHOR OF EACH MESSAGE
-            $query = sprintf("SELECT messages.date_and_time,messages.msg_content,person.first_name FROM messages LEFT JOIN person ON (person.person_id = messages.person_id) WHERE messages.place_id='%s' ", mysql_real_escape_string($placeId));
+            $query = sprintf("SELECT messages.date_and_time,messages.msg_content,person.first_name FROM messages LEFT JOIN person ON (person.person_id = messages.person_id) WHERE messages.place_id='%s' ", mysql_real_escape_string($fresh_PlaceId));
 
             // Perform Query
             $result = mysql_query($query);
 
-            // Check result
-            //echo $query;
             // This shows the actual query sent to MySQL, and the error. Useful for debugging.
             if (!$result) {
                 $message = 'Zero Messages';
@@ -105,11 +105,23 @@ header('Content-type: text/html; charset=utf-8');
 
         # This If condition is called for posting message.
         if( isset($_POST["q"]) && $_POST["q"] == "post_message" ){
+            
+            $fresh_PlaceId = getFreshPlaceId( $placeId );
+
             //add the message from the form on the check-in page into the messages database
-            $query = sprintf("INSERT INTO messages(person_id,place_id,msg_content) VALUES ('%s','%s','%s')", mysql_real_escape_string($userId), mysql_real_escape_string($placeId), mysql_real_escape_string($msg_content));
+            $query = sprintf("INSERT INTO messages(person_id,place_id,msg_content) VALUES ('%s','%s','%s')", mysql_real_escape_string($userId), mysql_real_escape_string($fresh_PlaceId), mysql_real_escape_string($msg_content));
             $result = mysql_query($query);
-            die;
         }
+        
+        function getFreshPlaceId( $prm_placeId ){
+            // Perform Query and get fresh_place_id
+            $query = "SELECT * FROM places WHERE place_id = '$prm_placeId'";
+            $result = mysql_query($query);
+            $row = mysql_fetch_assoc($result);
+            $fresh_PlaceId = $row['fresh_place_id'];
+            return $fresh_PlaceId;
+        }
+        
         ?>
 
         <!-- Now we let people leave and read messages -->
@@ -120,12 +132,13 @@ header('Content-type: text/html; charset=utf-8');
             <br />
             <input type="text" name="msg_content" id="msg_content" />
             <input type="button" value="Yodel It!" onclick="fn_post_message();" /><br />
+            <input type="button" value="Refresh" onclick="fn_show_msgboard();" /><br />
         </form>
 
         <!-- Read messages -->
         <br>
         'Da Message Board:
-        <br>
+        <br />
         <div id="div_messages"></div>
     </body>
 </html>
