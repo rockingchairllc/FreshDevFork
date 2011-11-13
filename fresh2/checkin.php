@@ -42,6 +42,7 @@ header('Content-type: text/html; charset=utf-8');
                     url: "messageboard.php",
                     async: false,
                     success: function(msg){
+                        $("#msg_content").attr("value","");
                         fn_show_msgboard();
                     }
                 });
