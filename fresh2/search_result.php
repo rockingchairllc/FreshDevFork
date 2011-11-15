@@ -42,7 +42,7 @@
 		echo '<tr>';												
 		echo  "<td><a href='checkin.php?place_id=" . $value['id'] . "&reference=" . $value['reference'] ."&lat=" . $value['geometry']['location']['lat'] ."&lng=" . $value['geometry']['location']['lng'] ."&uid=" . $userId . "'>" . $value['name'] . "</a></td>";		
 		echo '</tr>';
-		if ($count++ > 9)
+		if ($count++ > 25)
 			break;
 	}
 	echo '</table>';
