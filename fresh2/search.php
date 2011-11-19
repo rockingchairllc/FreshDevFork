@@ -85,6 +85,15 @@
 	
 	
 	if ($isFb){
+
+		$query = sprintf("Insert into person(email, last_name, first_name, password,pic) values ('fbemail','%s','%s','%s','images/logo.jpeg') ",mysql_real_escape_string($lastName),mysql_real_escape_string($firstName),mysql_real_escape_string($password));
+		$result = mysql_query($query);
+		// Check result		
+		if (!$result) {
+			$message  = 'Register error';    
+			die($message);
+		}
+
 		
 	}
 	else{
@@ -125,6 +134,7 @@
 <form action="search_result.php" method="post" id="searchForm">	
 	<input type="hidden" name="lat" id="lat" value="" >
 	<input type="hidden" name="lng" id="lng" value="" >
+	<input type="hidden" name="user_id" id="first_name" value="<?php echo $firstName; ?>" >	
 	<input type="hidden" name="user_id" id="user_id" value="<?php echo $userId; ?>" >
 	<br />	
 	<input type="button" value="Search Near By" id="SearchButton" onclick="doSearch();" >

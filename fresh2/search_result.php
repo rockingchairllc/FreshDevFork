@@ -14,7 +14,8 @@
 	
 	$lat = $_POST['lat'];
 	$lng = $_POST['lng'];
-	$userId = $_POST['user_id'];	
+	$userId = $_POST['user_id'];
+	$firstName = $_POST['first_name'];
 	if ($lat==""){
 		die("Your device does not support GPS, or you did not allow application using location information");
 	}
@@ -30,6 +31,7 @@
 	<form action="search_result.php" method="post">	
 		<input type="hidden" name="lat" id="lat" value="<?php echo $lat; ?>" >
 		<input type="hidden" name="lng" id="lng" value="<?php echo $lng; ?>">
+		<input type="hidden" name="user_id" id="first_name" value="<?php echo $firstName; ?>" >	
 		<input type="hidden" name="user_id" id="user_id" value="<?php echo $userId; ?>">
 		<br />
 		<input type="text" name="search_key" id="search_key" >
