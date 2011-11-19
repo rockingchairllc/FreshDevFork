@@ -86,16 +86,31 @@
 	
 	if ($isFb){
 
-		$query = sprintf("Insert into person(email, last_name, first_name, password,pic) values ('fbemail','%s','%s','%s','images/logo.jpeg') ",mysql_real_escape_string($lastName),mysql_real_escape_string($firstName),mysql_real_escape_string($password));
+		/// insert fb user into person database
+		$query = sprintf("Insert into person(fb_user_id, last_name, first_name, password,pic) values ('%s','%s','%s','%s','images/logo.jpeg') ",mysql_real_escape_string($userId),mysql_real_escape_string($lastName),mysql_real_escape_string($firstName),mysql_real_escape_string($password));
 		$result = mysql_query($query);
 		// Check result		
 		if (!$result) {
 			$message  = 'Register error';    
 			die($message);
 		}
+		
+		/// get user row back
+		$query = sprintf("SELECT person_id, first_name,pic FROM person where fb_user_id='%s' ",mysql_real_escape_string($userId));
+		// Perform Query
+		$result = mysql_query($query);
+		// Check result
+		//echo $query;
+		// This shows the actual query sent to MySQL, and the error. Useful for debugging.
+		if (!$result) {
+			$message  = 'Login error!';    
+			die($message);
+		}
 
 		
 	}
+	
+	
 	else{
 		$email = $_POST['email'];
 		$password = $_POST['password'];
@@ -112,10 +127,13 @@
 			$message  = 'Login error!';    
 			die($message);
 		}
+	}
+		
+		
 		// Use result
 		// One of the mysql result functions must be used
 		if ($row = mysql_fetch_assoc($result)) {
-			if ($password != $row['password']){
+			if (!$isFb && $password != $row['password']){
 				die("Login failed!");
 			}    
 			$firstName = $row['first_name'];
@@ -127,7 +145,7 @@
 		else{		
 			die("Login falied!");
 		}
-	}
+	
 	echo 'Welcome ' . $firstName;
 	echo "<br/><img src='$pic' width='80'>";
 ?>
