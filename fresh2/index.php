@@ -89,7 +89,7 @@ place as you.
 	<table >	
 		<tr><td colspan="2"><input type="button" value="Connect Using Facebook"  onclick="jscript:window.location.href = 'fblogin.php';"></td></tr>
 		<tr><td colspan="2"><input type="button" value="Sign Up the Old Way"  onclick="jscript:window.location.href = 'register.php';"></td></tr>
-		<tr><td colspan="2"><u>LOGIN:</u></td></tr>
+		<tr><td colspan="2"><br><u>LOGIN</u></td></tr>
 		<tr><td>Email:</td><td><input type="text" name="email" ></td></tr>
 		<tr><td>Password:</td><td><input type="password" name="password" ></td></tr>
 		<tr><td colspan="2"><input type="submit" value="Login" name="Login"> </td></tr>
