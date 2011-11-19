@@ -75,7 +75,10 @@ We will never email you.
 <br>
 (if you're really that paranoid
 <br>
-use a fake email address
+use a fake email address. This
+<br>
+is just a beta.)
+<br>
 <br>
 <form method="post" action="register.php">
 	<table>	
