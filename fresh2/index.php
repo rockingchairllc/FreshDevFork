@@ -89,7 +89,8 @@ place as you.
 	<table >	
 		<tr><td colspan="2"><input type="button" value="Login with Facebook"  onclick="jscript:window.location.href = 'fblogin.php';"></td></tr>
 		<tr><td colspan="2"><input type="button" value="Sign Up the Old Way"  onclick="jscript:window.location.href = 'register.php';"></td></tr>
-		<tr><td colspan="2">OR</td></tr>
+		<tr><td colspan="2"></td></tr>
+		<tr><td colspan="2">Or login the old way below:</td></tr>
 		<tr><td>Email:</td><td><input type="text" name="email" ></td></tr>
 		<tr><td>Password:</td><td><input type="password" name="password" ></td></tr>
 		<tr><td colspan="2"><input type="submit" value="Login" name="Login"> </td></tr>
