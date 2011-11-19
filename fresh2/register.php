@@ -69,7 +69,14 @@
 	}	
 	if (!$valid){
 ?>
-Fresh Sign Up
+<b>Sign Up for MyFresh!</b>
+<br>
+We will never email you.
+<br>
+(if you're really that paranoid
+<br>
+use a fake email address
+<br>
 <form method="post" action="register.php">
 	<table>	
 		<?php if ($email != "") {
