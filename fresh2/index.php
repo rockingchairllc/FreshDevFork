@@ -75,16 +75,25 @@ if(isset($_COOKIE['fbs_222936987739560'])){
 ?>
 </head>
 <body>
-Login to Fresh
+<b>Welcome to MyFresh</b>
+<br>
+<br>
+A place to connect with
+<br>
+people in the same
+<br>
+place as you.
+<br>
+<br>
 <form method="post" action="search.php">
 	<table >	
+		<tr><td colspan="2"><input type="button" value="Login with Facebook"  onclick="jscript:window.location.href = 'fblogin.php';"></td></tr>
+		<tr><td colspan="2"><input type="button" value="Sign Up the Old Way"  onclick="jscript:window.location.href = 'register.php';"></td></tr>
+		<tr><td colspan="2">OR</td></tr>
 		<tr><td>Email:</td><td><input type="text" name="email" ></td></tr>
 		<tr><td>Password:</td><td><input type="password" name="password" ></td></tr>
 		<tr><td colspan="2"><input type="submit" value="Login" name="Login"> </td></tr>
-		<tr><td colspan="2">OR</td></tr>
 		
-		<tr><td colspan="2"><input type="button" value="FB Login"  onclick="jscript:window.location.href = 'fblogin.php';"></td></tr>
-		<tr><td colspan="2"><input type="button" value="Sign Up"  onclick="jscript:window.location.href = 'register.php';"></td></tr>
 	</table> 
 </form>
 </body>
