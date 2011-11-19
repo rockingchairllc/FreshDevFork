@@ -28,8 +28,8 @@
 			$isFb = true;
 			$userId = $result['id'];
 		}
-		if (isset($result['name'])){					
-			$firstName = $result['name'];
+		if (isset($result['first_name'])){					
+			$firstName = $result['first_name'];
 		}
 		$pic = "https://graph.facebook.com/me/picture?access_token=" . $access_token;
 		/*
