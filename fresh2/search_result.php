@@ -28,6 +28,16 @@
 	
 	$listResult = $searchResult["results"];
 	?>
+	
+	<b>
+	Pick the place you're at from the
+	<br>
+	list below to join the conversation!
+	<b>
+	<br>
+	Or search using the search box
+	<br>
+	
 	<form action="search_result.php" method="post">	
 		<input type="hidden" name="lat" id="lat" value="<?php echo $lat; ?>" >
 		<input type="hidden" name="lng" id="lng" value="<?php echo $lng; ?>">
