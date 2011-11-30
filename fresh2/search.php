@@ -80,7 +80,7 @@
 </script>
 
 </head>
-<body>
+<body onload="doSearch();">
 <?php
 	
 	
@@ -147,7 +147,7 @@
 		}
 	
 	echo 'Welcome ' . $firstName;
-	echo "<br/><img src='$pic' width='80'>";
+	echo "<br/>Searching nearby places...";
 ?>
 <form action="search_result.php" method="post" id="searchForm">	
 	<input type="hidden" name="lat" id="lat" value="" >
@@ -155,10 +155,10 @@
 	<input type="hidden" name="user_id" id="first_name" value="<?php echo $firstName; ?>" >	
 	<input type="hidden" name="user_id" id="user_id" value="<?php echo $userId; ?>" >
 	<br />	
-	<input type="button" value="Search Near By" id="SearchButton" onclick="doSearch();" >
+	<!-- <input type="button" value="Search Near By" id="SearchButton" onclick="doSearch();" > -->
 	<br />
 	<br />
-	<input type="button" value="Log Out" id="LogOutButton" onclick="jscript:window.location.href = 'logout.php';" >
+	<!-- <input type="button" value="Log Out" id="LogOutButton" onclick="jscript:window.location.href = 'logout.php';" > -->
 	<br />
 	<div id='messageDiv'>...</div>	
 <form>

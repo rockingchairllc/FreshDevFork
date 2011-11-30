@@ -42,13 +42,13 @@
 	// Here we test whether near Irish Exit, then display link for Irish Exit with id=IrishExitForced
 	if ($lat > 40.74 && $lat < 40.77 && $lng > -73.98 && $lng < -73.955) {
 		echo '<tr>';
-		echo "<td><a href='checkin.php?place_id=IrishExitForced'>The Irish Exit</a></td>";
+		echo "<td><a href='checkin.php?place_id=IrishExitForced&uid=" . $userId . "'>The Irish Exit</a></td>";
 		echo '</tr>';
 		}
 	// Here we test whether near Rivergate Balcony, then display link for Rivergate Balcony with id=RivBalcForced
 	if ($lat > 40.73 && $lat < 40.755 && $lng > -73.98 && $lng < -73.965) {
 		echo '<tr>';
-		echo "<td><a href='checkin.php?place_id=RivBalcForced'>Rivergate Balcony</a></td>";
+		echo "<td><a href='checkin.php?place_id=RivBalcForced&uid=" . $userId . "'>Rivergate Balcony</a></td>";
 		echo '</tr>';
 		}
 	// Now the actual regular results
