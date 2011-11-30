@@ -33,7 +33,7 @@
 	Pick the place you're at from the
 	<br>
 	list below to join the conversation!
-	<b>
+	</b>
 	<br>
 	Or search using the search box
 	<br>
