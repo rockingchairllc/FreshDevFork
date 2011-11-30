@@ -30,12 +30,13 @@
 	?>
 	
 	<b>
-	Pick the place you're at from the
+	Pick this place from the list below
 	<br>
-	list below to join the conversation!
+	to join the conversation!
 	</b>
-	<br>
-	Or search using the search box
+	<br/>
+	<br/>
+	(Or search using the search box)
 	<br/>
 	<br/>
 	
