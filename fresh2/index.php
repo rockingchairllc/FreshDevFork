@@ -87,7 +87,7 @@ place as you.
 <br>
 <form method="post" action="search.php">
 	<table >	
-		<tr><td colspan="2"><input type="image" src="images/fb.png" onclick="jscript:window.location.href = 'fblogin.php';"></td></tr>
+		<tr><td colspan="2"><input type="button" value="Connect with Facebook" onclick="jscript:window.location.href = 'fblogin.php';"></td></tr>
 		<tr><td colspan="2">(we won't post anything)<br></td></tr>
 		<tr><td colspan="2"><br></td></tr>
 		<tr><td colspan="2"><input type="button" value="Sign Up Old-Fashioned Way"  onclick="jscript:window.location.href = 'register.php';"></td></tr>
