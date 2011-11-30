@@ -36,7 +36,8 @@
 	</b>
 	<br>
 	Or search using the search box
-	<br>
+	<br/>
+	<br/>
 	
 	
 	<?php
