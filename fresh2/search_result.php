@@ -64,6 +64,9 @@
 	}
 	echo '</table>';
 	
+	
+?>
+
 	<form action="search_result.php" method="post">	
 		<input type="hidden" name="lat" id="lat" value="<?php echo $lat; ?>" >
 		<input type="hidden" name="lng" id="lng" value="<?php echo $lng; ?>">
@@ -73,7 +76,6 @@
 		<input type="text" name="search_key" id="search_key" >
 		<input type="submit" value="Search" >
 	</form>
-	
-?>
+
 </body>
 </html>
