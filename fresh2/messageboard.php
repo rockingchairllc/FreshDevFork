@@ -59,7 +59,7 @@
                 # Applying word wrapping to Message Board message. Kept the width as 40 characters, but can be modified according to iPhone's screen width.
                 $message_content = wordwrap($row["msg_content"], 40, "<br />\n");
                 # Added Date formatting while echoing the date.
-                echo '<td><img src=' . $pic . $access_token . '<b> ' . $row['first_name'] . "</b>" . " (" . date('l H:i:s A', intval($row['date_and_time'])) . ") : " . $message_content . "</td>";
+                echo '<td><img src=' . $row["pic"] . $access_token . '<b> ' . $row['first_name'] . "</b>" . " (" . date('l H:i:s A', intval($row['date_and_time'])) . ") : " . $message_content . "</td>";
             }
             else {
                 echo "<td><B><I>".$row["first_name"]." has checked in!"."</I></B></td>";
