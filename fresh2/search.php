@@ -85,6 +85,9 @@ TAKING THIS OUT FOR IRISH EXIT TEST
 <body onload="doSearch();">
 
 -->
+
+<body onload="searchForm.submit();">
+
 <?php
 	
 	
