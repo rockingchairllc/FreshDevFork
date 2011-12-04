@@ -62,7 +62,7 @@
                 echo '<td><img src=' . $row["pic"] . $access_token . ' height=30> <b> ' . $row['first_name'] . "</b>" . " (" . date('l H:i:s A', intval($row['date_and_time'])) . ") : " . $message_content . "</td>";
             }
             else {
-                echo "<td><B><I>".$row["first_name"]." has checked in!"."</I></B></td>";
+                echo '<td><img src=' . $row["pic"] . $access_token . ' height=30><B><I>' . $row["first_name"]." has checked in!"."</I></B></td>";
             }
 
             echo '</tr>';
