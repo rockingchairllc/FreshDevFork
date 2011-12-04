@@ -89,6 +89,9 @@ header('Content-type: text/html; charset=utf-8');
         if (isset($_GET['lat'])) {
             $lat = $_GET['lat'];
         }
+        if (isset($_GET['access_token'])) {
+            $access_token = $_GET['access_token'];
+        }
         if (isset($_GET['lng'])) {
             $lng = $_GET['lng'];
         }
@@ -182,6 +185,7 @@ header('Content-type: text/html; charset=utf-8');
         <form id="frm_message_board" name="frm_message_board" method="POST" action="javascript: fn_post_message();">
             <input type="hidden" name="user_id" id="user_id" value="<?php echo $userId; ?>" />
             <input type="hidden" name="place_id" id="place_id" value="<?php echo $placeId; ?>" />
+			<input type="hidden" name="access_token" id="access_token" value="<?php echo $access_token; ?>" >
             <br />
             <input type="text" name="msg_content" id="msg_content" />
             <input type="button" value="Yodel It!" onclick="fn_post_message();" />

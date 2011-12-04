@@ -152,6 +152,7 @@
 <form action="search_result.php" method="post" id="searchForm">	
 	<input type="hidden" name="lat" id="lat" value="" >
 	<input type="hidden" name="lng" id="lng" value="" >
+	<input type="hidden" name="access_token" id="access_token" value="<?php echo $access_token; ?>" >	
 	<input type="hidden" name="user_id" id="first_name" value="<?php echo $firstName; ?>" >	
 	<input type="hidden" name="user_id" id="user_id" value="<?php echo $userId; ?>" >
 	<br />	
