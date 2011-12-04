@@ -20,11 +20,11 @@
         $prev_time = $current_time-5;
         $current_time = $current_time+5;
         //$query = "SELECT *,UNIX_TIMESTAMP(a.datetime_checkin) as date_and_time,b.first_name FROM checkin as a LEFT JOIN person as b ON (b.person_id=a.person_id) WHERE fresh_place_id = ".$fresh_PlaceId." AND (UNIX_TIMESTAMP(datetime_checkin) BETWEEN ".$prev_time." AND ".$current_time.")";
-        $query = "SELECT *,UNIX_TIMESTAMP(a.datetime_checkin) as date_and_time,b.first_name FROM checkin as a LEFT JOIN person as b ON (b.person_id=a.person_id) WHERE fresh_place_id = ".$fresh_PlaceId . " ORDER BY UNIX_TIMESTAMP(date_and_time) DESC";
+        $query = "SELECT *,UNIX_TIMESTAMP(a.datetime_checkin) as date_and_time,b.first_name,pic FROM checkin as a LEFT JOIN person as b ON (b.person_id=a.person_id) WHERE fresh_place_id = ".$fresh_PlaceId . " ORDER BY UNIX_TIMESTAMP(date_and_time) DESC";
         $result_1 = mysql_query($query);
         
-        // SQL QUERY TO RETREIVE MESSAGES, AND RETREIVE THE FIRST NAME OF THE AUTHOR OF EACH MESSAGE
-        $query = sprintf("SELECT UNIX_TIMESTAMP(messages.date_and_time) as date_and_time,messages.msg_content,person.first_name FROM messages LEFT JOIN person ON (person.person_id = messages.person_id) WHERE messages.place_id='%s' ORDER BY UNIX_TIMESTAMP(messages.date_and_time) DESC", mysql_real_escape_string($fresh_PlaceId));
+        // SQL QUERY TO RETREIVE MESSAGES, AND RETREIVE THE FIRST NAME OF THE AUTHOR OF EACH MESSAGE and picture
+        $query = sprintf("SELECT UNIX_TIMESTAMP(messages.date_and_time) as date_and_time,messages.msg_content,person.first_name,pic FROM messages LEFT JOIN person ON (person.person_id = messages.person_id) WHERE messages.place_id='%s' ORDER BY UNIX_TIMESTAMP(messages.date_and_time) DESC", mysql_real_escape_string($fresh_PlaceId));
 
         // Perform Query
         $result_2 = mysql_query($query);
@@ -58,7 +58,7 @@
                 # Applying word wrapping to Message Board message. Kept the width as 40 characters, but can be modified according to iPhone's screen width.
                 $message_content = wordwrap($row["msg_content"], 40, "<br />\n");
                 # Added Date formatting while echoing the date.
-                echo "<td><b>" . $row['first_name'] . "</b>" . " (" . date('l H:i:s A', intval($row['date_and_time'])) . ") : " . $message_content . "</td>";
+                echo '<td><img src="' . $row['pic'] . '" height="30"><b> ' . $row['first_name'] . "</b>" . " (" . date('l H:i:s A', intval($row['date_and_time'])) . ") : " . $message_content . "</td>";
             }
             else {
                 echo "<td><B><I>".$row["first_name"]." has checked in!"."</I></B></td>";

@@ -87,7 +87,7 @@
 	if ($isFb){
 
 		/// insert fb user into person database
-		$query = sprintf("Insert into person(fb_user_id, last_name, first_name, password,pic) values ('%s','%s','%s','%s','images/logo.jpeg') ",mysql_real_escape_string($userId),mysql_real_escape_string($lastName),mysql_real_escape_string($firstName),mysql_real_escape_string($password));
+		$query = sprintf("Insert into person(fb_user_id, last_name, first_name, password, pic) values ('%s','%s','%s','%s','%s') ",mysql_real_escape_string($userId),mysql_real_escape_string($lastName),mysql_real_escape_string($firstName),mysql_real_escape_string($password),mysql_real_escape_string($pic));
 		$result = mysql_query($query);
 		// Check result		
 		if (!$result) {
