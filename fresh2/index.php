@@ -85,17 +85,21 @@ people in the same
 place as you.
 <br>
 <br>
+Click the button below to play!
+<br>
+<br>
 <form method="post" action="search.php">
 	<table >	
 		<tr><td colspan="2"><img src="images/fb.png" onclick="jscript:window.location.href = 'fblogin.php';"></td></tr>
-		<tr><td colspan="2">(we won't post anything)<br></td></tr>
+		<tr><td colspan="2">(we won't post anything to your wall)<br></td></tr>
+		<!--
 		<tr><td colspan="2"><br></td></tr>
 		<tr><td colspan="2"><input type="button" value="Sign Up Old-Fashioned Way"  onclick="jscript:window.location.href = 'register.php';"></td></tr>
 		<tr><td colspan="2"><br><u>LOGIN</u></td></tr>
 		<tr><td>Email:</td><td><input type="text" name="email" ></td></tr>
 		<tr><td>Password:</td><td><input type="password" name="password" ></td></tr>
 		<tr><td colspan="2"><input type="submit" value="Login" name="Login"> </td></tr>
-		
+		-->
 	</table> 
 </form>
 <br>
