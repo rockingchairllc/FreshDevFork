@@ -80,7 +80,11 @@
 </script>
 
 </head>
+<!-- 
+TAKING THIS OUT FOR IRISH EXIT TEST
 <body onload="doSearch();">
+
+-->
 <?php
 	
 	
@@ -147,7 +151,7 @@
 		}
 	
 	echo 'Welcome ' . $firstName;
-	echo "<br/><img src='$pic . $access_token' width='80'>";
+	echo "<br/><img src='" . $pic . $access_token . "' width='80'>";
 	echo "<br/>Searching nearby places...";
 ?>
 <form action="search_result.php" method="post" id="searchForm">	

@@ -11,9 +11,15 @@
 <?php
 	require_once("GPlaceAPI.php");
 	$place = new GPlaceAPI();
+	$lat = 40.7558;
+	$lng = -73.9675;
 	
+/* COMMENTING THIS OUT FOR IRISH EXIT TEST
+
 	$lat = $_POST['lat'];
 	$lng = $_POST['lng'];
+
+*/
 	$userId = $_POST['user_id'];
 	$access_token = $_POST['access_token'];
 	$firstName = $_POST['first_name'];
