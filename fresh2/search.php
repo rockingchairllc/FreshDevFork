@@ -31,8 +31,8 @@
 		if (isset($result['first_name'])){					
 			$firstName = $result['first_name'];
 		}
-		$pic = "https://graph.facebook.com/me/picture?access_token=" . $access_token;
-		/*
+		$pic = "https://graph.facebook.com/" . $userId . "/picture?access_token=";
+		/* OLD BAD CODE, COMMENTED OUT
 		if (isset($result['username'])){					
 			$userName = $result['username'];
 			$pic = "https://graph.facebook.com/" . $userName . "/picture";
@@ -147,6 +147,7 @@
 		}
 	
 	echo 'Welcome ' . $firstName;
+	echo "<br/><img src='$pic . $access_token' width='80'>";
 	echo "<br/>Searching nearby places...";
 ?>
 <form action="search_result.php" method="post" id="searchForm">	

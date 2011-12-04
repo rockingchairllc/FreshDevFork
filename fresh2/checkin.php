@@ -3,6 +3,23 @@ require_once("config.php");
 require_once("GPlaceAPI.php");
 $place = new GPlaceAPI();
 
+	if(isset($_COOKIE['fbs_222936987739560'])){
+		$authCode = $_COOKIE['fbs_222936987739560'];			
+		$pieces = explode("&", $authCode);
+		$access_token = "";
+		//access_token=222936987739560|2.AQAFPph1x4YEMHGJ.3600.1309590000.1-703078927|7mHGzDUlGA-laxGJCCivYLRz5O8&
+		if (isset($pieces[0])){
+			$tmp = explode("=", $pieces[0]);
+			if (isset($tmp[1])){
+				$access_token = $tmp[1];
+			}
+		}	
+	}
+	if(isset($_COOKIE['access_token'])){
+		$access_token = $_COOKIE['access_token'];
+	}
+
+
 header('Content-type: text/html; charset=utf-8');
 ?>
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
@@ -89,9 +106,11 @@ header('Content-type: text/html; charset=utf-8');
         if (isset($_GET['lat'])) {
             $lat = $_GET['lat'];
         }
+        /* THIS WAS GETTING ACCESS TOKEN FROM PREV PAGE BUT NOW WE GET FROM FB COOKIE
         if (isset($_GET['access_token'])) {
             $access_token = $_GET['access_token'];
         }
+        */
         if (isset($_GET['lng'])) {
             $lng = $_GET['lng'];
         }
